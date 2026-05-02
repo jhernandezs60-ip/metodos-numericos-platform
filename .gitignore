@@ -1,0 +1,24 @@
+# Visual Studio / .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Base de datos local temporal
+api-dotnet/ApiNumerica/jobs.db
+api-dotnet/ApiNumerica/jobs.db-shm
+api-dotnet/ApiNumerica/jobs.db-wal
+
+# Frontend
+node_modules/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Variables privadas
+.env

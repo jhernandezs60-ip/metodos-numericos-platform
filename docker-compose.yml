@@ -1,0 +1,66 @@
+# Docker Compose base del proyecto.
+# Pendiente de prueba final porque Docker Desktop quedó pendiente de configuración.
+# Servicios planificados:
+# - frontend
+# - api-dotnet
+# - worker-python
+# - redis
+# - db SQL Server
+
+services:
+  api-dotnet:
+    build:
+      context: ./api-dotnet/ApiNumerica
+      dockerfile: Dockerfile
+    container_name: api-numerica
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=NumericalMethodsDb;User Id=sa;Password=Your_password123;TrustServerCertificate=True;
+      - Redis__ConnectionString=redis:6379
+    depends_on:
+      - redis
+      - db
+
+  worker-python:
+    build:
+      context: ./worker-python
+      dockerfile: Dockerfile
+    container_name: worker-numerico
+    environment:
+      - DB_CONNECTION=Server=db;Database=NumericalMethodsDb;User Id=sa;Password=Your_password123;TrustServerCertificate=True;
+      - REDIS_CONNECTION=redis:6379
+    depends_on:
+      - redis
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend-numerico
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api-dotnet
+
+  redis:
+    image: redis:7
+    container_name: redis-numerico
+    ports:
+      - "6379:6379"
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver-numerico
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_password123
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+volumes:
+  sqlserver_data:
