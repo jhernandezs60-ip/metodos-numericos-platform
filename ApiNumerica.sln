@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37111.16 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiNumerica", "api-dotnet\ApiNumerica\ApiNumerica.csproj", "{07DB4B1A-F6BE-1877-19A9-E6DE725EAAEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07DB4B1A-F6BE-1877-19A9-E6DE725EAAEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07DB4B1A-F6BE-1877-19A9-E6DE725EAAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07DB4B1A-F6BE-1877-19A9-E6DE725EAAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07DB4B1A-F6BE-1877-19A9-E6DE725EAAEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B9CB0B7-AC65-4450-9261-5D40AFC83C55}
+	EndGlobalSection
+EndGlobal
